@@ -16,3 +16,13 @@ Feature: US01 - Registrarme en la App
     When completa correctamente el formulario de registro
     Then el sistema crea la cuenta exitosamente
     And muestra el mensaje “Usuario creado exitosamente”
+
+
+  Scenario 02: Registro con correo existente
+
+    | Datos Inválidos |
+    | Correo          | carlos@gmail.com |
+
+    Given el correo ya se encuentra registrado en el sistema
+    When el usuario intenta crear una nueva cuenta
+    Then el sistema muestra el mensaje “Este correo ya está en uso”
