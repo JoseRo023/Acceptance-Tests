@@ -1,9 +1,15 @@
 Feature: US02 - Recibir notificaciones de pausa digital
+
   Como adolescente usuario
-  Quiero recibir alertas de descanso
+  Quiero recibir alertas de pausa digital
   Para controlar mi tiempo de uso
 
-  Scenario: Envío de alerta de pausa
-    Given que el usuario supera el tiempo límite configurado
+  Scenario 01: Envío de alerta automática
+
+    | Configuración |
+    | Tiempo Máximo | 120 minutos |
+
+    Given el usuario supera el tiempo límite configurado
     When el sistema detecta exceso de uso
-    Then enviará una notificación de descanso
+    Then se envía una notificación de descanso
+    And el mensaje contiene una recomendación motivacional
